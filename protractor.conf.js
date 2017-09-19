@@ -4,7 +4,7 @@
 const { SpecReporter } = require('jasmine-spec-reporter');
 
 exports.config = {
-  allScriptsTimeout: 11000,
+  allScriptsTimeout: 100000,
   specs: [
     './e2e/**/*.e2e-spec.ts'
   ],
@@ -20,6 +20,7 @@ exports.config = {
     print: function() {}
   },
   onPrepare() {
+    browser.driver.manage().window().maximize();
     require('ts-node').register({
       project: 'e2e/tsconfig.e2e.json'
     });
