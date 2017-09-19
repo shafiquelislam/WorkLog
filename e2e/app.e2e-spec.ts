@@ -5,10 +5,10 @@ const data = require("./app.data.json");
 
 describe('portal-worklog App', () => {
   let page: PortalWorklogPage;
-  
+
   beforeAll(() => {
-     page = new PortalWorklogPage();
-     browser.sleep(data.waitTime);
+    page = new PortalWorklogPage();
+    browser.sleep(data.waitTime);
   });
 
   afterAll(() => {
@@ -41,6 +41,11 @@ describe('portal-worklog App', () => {
 
   it('should set work log', done => {
     expect(page.setWorkLog()).toBe(true);
+    done();
+  });
+
+  it('should save work log', done => {
+    expect(page.saveWorkLog()).toBe(true);
     done();
   });
 

@@ -54,7 +54,15 @@ export class PortalWorklogPage {
   setWorkLog() {
     return $('#work-logs-form .note-editable').sendKeys(data.workLog).then(() => {
       return true;
-    });  
+    });
+  }
+
+  saveWorkLog() {
+    return $('#work-logs-form .panel-body button[type="submit"]').click().then(() => {
+      return $('#content .panel-heading a[href^="/work-logs/add"]').isPresent().then((result) => {
+        return result;
+      });
+    });
   }
 
 
